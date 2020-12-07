@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html> 
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+<style>
+   p{
+    color: rgb(44, 185, 9); 
+    font-size: 350px;
+    margin-top: 30%;
+    text-align: center;
+   
+
+ 
+   } 
+
+   #p5Canvas {
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0;
+left: 0;
+z-index: -1;
+   }
+
+</style>
+
+</head>
+
+
+<body>
+    <p>Yume W</p>
+    <div id = "p5Canvas"></div>
+<script>
+let cam; 
+
+function setup(){
+  let canvas = createCanvas(windowWidth,windowHeight,WEBGL);
+  canvas.parent ("p5Canvas");
+ 
+
+  cam = createCapture (VIDEO) ; 
+  cam.hide();
+}
+function draw(){
+background (255);
+ambientLight (255);
+  
+  for (let x = -200; x< 200; x+= 90){
+    push ();
+    translate (x,0,mouseY-200);
+  
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  rotateZ (frameCount *0.01);
+    ambientMaterial (255);
+  texture (cam );
+  box(50);
+    pop(); 
+ 
+}
+}
+function windowResized(){
+    resizeCanvas(windowWidth,windowHeight);
+}
+
+
+    
+</script>
+
+
+</body>
+</html>
