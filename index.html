@@ -44,7 +44,8 @@ function setup() {
   w = windowWidth;
   h = windowHeight;
   capture = createCapture(VIDEO);
-  createCanvas(w, h);
+  let canvas = createCanvas(w, h);
+	canvas.parent ("p5Canvas")
   capture.size(w, h);
   capture.hide();
 
